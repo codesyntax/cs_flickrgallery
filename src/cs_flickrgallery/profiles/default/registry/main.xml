@@ -5,4 +5,7 @@
 
   <!-- -*- extra stuff goes here -*- -->
 
+  <records interface="cs_flickrgallery.controlpanels.controlpanel.IFlickrSettingsControlPanel"
+           prefix="cs_flickrgallery.flickr_settings" />
+
 </registry>

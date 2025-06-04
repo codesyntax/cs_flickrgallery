@@ -1,0 +1,22 @@
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    metal:use-macro="here/main_template/macros/master">
+
+
+    <metal:content fill-slot="content-core">
+
+        <div id="flickr_gallery_content" class="row" tal:define="images view/get_images">
+
+            <div class="flick_gallery_content_item col-3" tal:repeat="image images">
+                <img srcset="${image/srcset}" alt="${image/title}" loading="lazy" sizes="25vw" class="flickr_gallery_content_item_img"/>
+                <p class="flickr_gallery_content_item_title">${image/title}</p>
+            </div>
+
+        </div>
+
+    </metal:content>
+
+
+</html>

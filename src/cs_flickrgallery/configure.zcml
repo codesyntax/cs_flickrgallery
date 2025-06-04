@@ -16,7 +16,7 @@
   <include file="profiles.zcml" />
   <include file="permissions.zcml" />
 
-  <include package=".controlpanel" />
+  <include package=".controlpanels" />
   <include package=".indexers" />
   <include package=".vocabularies" />
   <include package=".behaviors" />

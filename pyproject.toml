@@ -5,34 +5,31 @@ description = "A new addon for Plone"
 readme = "README.md"
 license = "GPL-2.0-only"
 requires-python = ">=3.10"
-authors = [
-    { name = "Mikel Larreategi", email = "mlarreategi@codesyntax.com" },
-]
-keywords = [
-    "CMS",
-    "Plone",
-    "Python",
-]
+authors = [{ name = "Mikel Larreategi", email = "mlarreategi@codesyntax.com" }]
+keywords = ["CMS", "Plone", "Python"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Environment :: Web Environment",
-    "Framework :: Plone","Framework :: Plone :: 6.0","Framework :: Plone :: 6.1",
+    "Framework :: Plone",
+    "Framework :: Plone :: 6.0",
+    "Framework :: Plone :: 6.1",
     "Framework :: Plone :: Addon",
     "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     "Operating System :: OS Independent",
-    "Programming Language :: Python","Programming Language :: Python :: 3.10","Programming Language :: Python :: 3.11","Programming Language :: Python :: 3.12","Programming Language :: Python :: 3.13",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
 ]
-dependencies = [
-    "Products.CMFPlone",
-    "plone.api",
-    
-]
+dependencies = ["Products.CMFPlone", "plone.api", "flickrapi"]
 
 [project.optional-dependencies]
 test = [
     "horse-with-no-namespace",
     "plone.app.testing",
-    "plone.classicui","plone.restapi[test]",
+    "plone.classicui",
+    "plone.restapi[test]",
     "pytest",
     "pytest-cov",
     "pytest-plone>=0.5.0",
@@ -62,9 +59,7 @@ build-backend = "hatchling.build"
 strict-naming = true
 
 [tool.hatch.build.targets.sdist]
-exclude = [
-  "/.github",
-]
+exclude = ["/.github"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/cs_flickrgallery"]
@@ -130,7 +125,8 @@ lint.select = [
     # mccabe
     "C90",
     # pycodestyle
-    "E", "W",
+    "E",
+    "W",
     # pyflakes
     "F",
     # pygrep-hooks
@@ -167,6 +163,4 @@ testpaths = ["tests"]
 source_pkgs = ["cs_flickrgallery", "tests"]
 branch = true
 parallel = true
-omit = [
-  "src/cs_flickrgallery/locales/*.py",
-]
+omit = ["src/cs_flickrgallery/locales/*.py"]
