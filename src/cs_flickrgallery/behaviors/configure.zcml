@@ -12,5 +12,13 @@
       />
 
   <!-- -*- extra stuff goes here -*- -->
+  <plone:behavior
+      name="cs_flickrgallery.flickr_gallery"
+      title="Flickr Gallery"
+      description="Flickr Gallery Suport"
+      factory=".flickr_gallery.FlickrGallery"
+      provides=".flickr_gallery.IFlickrGallery"
+      marker=".flickr_gallery.IFlickrGalleryMarker"
+      />
 
 </configure>

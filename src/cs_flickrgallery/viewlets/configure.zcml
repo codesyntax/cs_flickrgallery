@@ -1,0 +1,17 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="cs_flickrgallery"
+    >
+
+  <!-- -*- extra stuff goes here -*- -->
+  <browser:viewlet
+      name="cs_flickr_gallery.flickr_gallery_admin_viewlet"
+      for="..behaviors.flickr_gallery.IFlickrGalleryMarker"
+      manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+      class=".flickr_gallery_admin_viewlet.FlickrGalleryAdminViewlet"
+      template="flickr_gallery_admin_viewlet.pt"
+      permission="zope2.View"
+      />
+
+</configure>
