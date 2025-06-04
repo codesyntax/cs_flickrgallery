@@ -1,5 +1,6 @@
 from cs_flickrgallery import _
 from cs_flickrgallery.utils import set_images
+from logging import getLogger
 from plone import api
 from plone.memoize import ram
 from Products.Five.browser import BrowserView
@@ -87,7 +88,9 @@ class UpdatePhotosFromFlickr(BrowserView):
         flickr = self.flickr
 
         if empty(self.flickr_username):
-            self.log_error(Exception, None, "No Flickr username or ID provided")
+            log = getLogger(__name__)
+            log.info("No Flickr username or ID provided")
+
             return None
 
         username = self.flickr_username.strip()
@@ -111,8 +114,9 @@ class UpdatePhotosFromFlickr(BrowserView):
                     .strip()
                 )
 
-            except Exception as inst:
-                self.log_error(Exception, inst, "Can't find Flickr username or ID")
+            except Exception:
+                log = getLogger(__name__)
+                log.info("Can't find Flickr username or ID")
 
         return None
 
@@ -143,11 +147,8 @@ class UpdatePhotosFromFlickr(BrowserView):
             if theset in (photoset_title, photoset_id):
                 return photoset_id
 
-        self.log_error(
-            Exception,
-            None,
-            "Can't find Flickr photoset, or not owned by user (%s)." % user_id,
-        )
+        log = getLogger(__name__)
+        log.info("Can't find Flickr photoset, or not owned by user (%s).", user_id)
 
         return None
 
@@ -229,11 +230,11 @@ class UpdatePhotosFromFlickr(BrowserView):
         if photoset_id:
             try:
                 photos = self.gen_photoset_photos(user_id, photoset_id)
-            except Exception as inst:
-                self.log_error(
-                    Exception,
-                    inst,
-                    "Error getting images from Flickr photoset %s" % (photoset_id),
+            except Exception:
+                log = getLogger(__name__)
+                log.info(
+                    "Error getting images from Flickr photoset %s",
+                    photoset_id,
                 )
 
                 return []
@@ -241,19 +242,18 @@ class UpdatePhotosFromFlickr(BrowserView):
         elif collection_id:
             try:
                 photos = self.gen_collection_photos(user_id, collection_id)
-            except Exception as inst:
-                self.log_error(
-                    Exception,
-                    inst,
-                    "Error getting images from Flickr collection %s" % (photoset_id),
+            except Exception:
+                log = getLogger(__name__)
+                log.info(
+                    "Error getting images from Flickr collection %s",
+                    collection_id,
                 )
                 return []
         else:
-            self.log_error(
-                Exception,
-                None,
-                "No Flickr photoset or collection provided,"
-                " or not owned by user (%s). No images to show." % user_id,
+            log = getLogger(__name__)
+            log.info(
+                "No Flickr photoset or collection provided, or not owned by user (%s). No images to show.",
+                user_id,
             )
 
             photos = []
