@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layers>
+  <layer interface="cs_flickrgallery.interfaces.IBrowserLayer"
+         name="cs_flickrgallery"
+  />
+</layers>
