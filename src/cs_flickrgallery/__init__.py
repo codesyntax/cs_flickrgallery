@@ -12,3 +12,6 @@ PACKAGE_NAME = "cs_flickrgallery"
 _ = MessageFactory(PACKAGE_NAME)
 
 logger = logging.getLogger(PACKAGE_NAME)
+
+
+ANNOTATION_KEY = "cs_flickrgallery"

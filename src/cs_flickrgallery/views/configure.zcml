@@ -5,12 +5,10 @@
     >
 
   <!-- -*- extra stuff goes here -*- -->
-  <browser:viewlet
-      name="cs_flickr_gallery.flickr_gallery_admin_viewlet"
+  <browser:page
+      name="update_photos_from_flickr"
       for="..behaviors.flickr_gallery.IFlickrGalleryMarker"
-      manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
-      class=".flickr_gallery_admin_viewlet.FlickrGalleryAdminViewlet"
-      template="flickr_gallery_admin_viewlet.pt"
+      class=".update_photos_from_flickr.UpdatePhotosFromFlickr"
       permission="cmf.ModifyPortalContent"
       layer="..interfaces.IBrowserLayer"
       />

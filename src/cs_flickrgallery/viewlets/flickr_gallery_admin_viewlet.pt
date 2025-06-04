@@ -1,3 +1,8 @@
-<div id="flickr_gallery" class="statusmessage-info alert alert-info" role="alert">
-    Bla
+<div id="flickr_gallery" class="statusmessage-warning alert alert-warning" role="alert">
+    <p i18n:translate="">You have <span i18n:name="photos" tal:content="view/get_number_of_photos" /> photos from Flickr</p>
+
+    <form action="${context/absolute_url}/@@update_photos_from_flickr" method="post">
+        <button type="submit" class="btn btn-primary" i18n:translate="">Force update</button>
+    </form>
+
 </div>
