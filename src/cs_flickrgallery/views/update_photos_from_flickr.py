@@ -156,15 +156,11 @@ class UpdatePhotosFromFlickr(BrowserView):
 
         # Yield all photosets.
         # Exception handling is expected to be made by calling context.
-        try:
-            for photoset in (
-                flickr.collections.getTree(user_id=user_id, collection_id=collection_id)
-                .get("collections", {})
-                .get("collection", [])
-            ):
-                yield photoset
-        except:
-            yield None
+        yield from (
+            flickr.collections.getTree(user_id=user_id, collection_id=collection_id)
+            .get("collections", {})
+            .get("collection", [])
+        )
 
     def gen_photoset_photos(self, user_id, photoset_id):
         flickr = self.flickr
@@ -172,7 +168,7 @@ class UpdatePhotosFromFlickr(BrowserView):
         # Yield all photos.
         # Exception handling is expected to be made by calling context.
 
-        for photo in (
+        yield from (
             flickr.photosets.getPhotos(
                 user_id=user_id,
                 photoset_id=photoset_id,
@@ -181,8 +177,7 @@ class UpdatePhotosFromFlickr(BrowserView):
             )
             .get("photoset", {})
             .get("photo", [])
-        ):
-            yield photo
+        )
 
     def gen_collection_photos(self, user_id, collection_id):
         # Collect every single photo from that collection.
@@ -200,27 +195,13 @@ class UpdatePhotosFromFlickr(BrowserView):
         return iter(photos)
 
     def get_mini_photo_url(self, photo):
-        return "https://farm%s.static.flickr.com/%s/%s_%s_s.jpg" % (
-            photo.get("farm"),
-            photo.get("server"),
-            photo.get("id"),
-            photo.get("secret"),
-        )
+        return f"https://farm{photo.get('farm')}.static.flickr.com/{photo.get('server')}/{photo.get('id')}_{photo.get('secret')}_s.jpg"
 
     def get_photo_link(self, photo):
-        return "https//www.flickr.com/photos/%s/%s/sizes/o/" % (
-            self.flickr_username,
-            photo.get("id"),
-        )
+        return f"https//www.flickr.com/photos/{self.flickr_username}/{photo.get('id')}/sizes/o/"
 
     def get_large_photo_url(self, photo):
-        return "https//farm%s.static.flickr.com/%s/%s_%s%s.jpg" % (
-            photo.get("farm"),
-            photo.get("server"),
-            photo.get("id"),
-            photo.get("secret"),
-            self.sizes["flickr"]["large"],
-        )
+        return f"https//farm{photo.get('farm')}.static.flickr.com/{photo.get('server')}/{photo.get('id')}_{photo.get('secret')}{self.sizes['flickr']['large']}.jpg"
 
     @property
     def flickr(self):
