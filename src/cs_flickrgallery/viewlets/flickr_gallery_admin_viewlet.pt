@@ -1,8 +1,20 @@
-<div id="flickr_gallery" class="statusmessage-warning alert alert-warning" role="alert">
-    <p i18n:translate="">You have <span i18n:name="photos" tal:content="view/get_number_of_photos" /> photos from Flickr</p>
+<div class="statusmessage-warning alert alert-warning"
+     id="flickr_gallery"
+     role="alert"
+>
+  <p i18n:translate="">You have
+    <span tal:content="view/get_number_of_photos"
+          i18n:name="photos"
+    ></span>
+    photos from Flickr</p>
 
-    <form action="${context/absolute_url}/@@update_photos_from_flickr" method="post">
-        <button type="submit" class="btn btn-primary" i18n:translate="">Force update</button>
-    </form>
+  <form action="${context/absolute_url}/@@update_photos_from_flickr"
+        method="post"
+  >
+    <button class="btn btn-primary"
+            type="submit"
+            i18n:translate=""
+    >Force update</button>
+  </form>
 
 </div>

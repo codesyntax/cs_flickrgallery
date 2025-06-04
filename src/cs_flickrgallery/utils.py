@@ -1,7 +1,6 @@
 from BTrees.IOBTree import IOBTree
-from zope.annotation.interfaces import IAnnotations
-
 from cs_flickrgallery import ANNOTATION_KEY
+from zope.annotation.interfaces import IAnnotations
 
 
 def set_images(context, images):
@@ -10,6 +9,7 @@ def set_images(context, images):
     for i, image in enumerate(images):
         values[i] = image
     annotated[ANNOTATION_KEY] = values
+
 
 def get_images(context):
     annotated = IAnnotations(context)

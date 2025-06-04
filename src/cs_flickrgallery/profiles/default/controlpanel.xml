@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<object name="portal_controlpanel" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+<object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        name="portal_controlpanel"
+>
 
   <!-- -*- extra stuff goes here -*- -->
-    <configlet
-      i18n:attributes="title"
-      title="Flickr Settings"
-      action_id="flickr_settings-controlpanel"
-      appId="flickr_settings-controlpanel"
-      category="Products"
-      condition_expr=""
-      icon_expr=""
-      url_expr="string:${portal_url}/@@flickr_settings-controlpanel"
-      visible="True">
+  <configlet action_id="flickr_settings-controlpanel"
+             appId="flickr_settings-controlpanel"
+             category="Products"
+             condition_expr=""
+             icon_expr=""
+             title="Flickr Settings"
+             url_expr="string:${portal_url}/@@flickr_settings-controlpanel"
+             visible="True"
+             i18n:attributes="title"
+  >
     <permission>Manage Portal</permission>
   </configlet>
 

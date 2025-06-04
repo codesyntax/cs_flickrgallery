@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 from cs_flickrgallery import _
 from plone import schema
@@ -6,8 +5,8 @@ from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
 from Products.CMFPlone.utils import safe_hasattr
 from zope.component import adapter
-from zope.interface import Interface
 from zope.interface import implementer
+from zope.interface import Interface
 from zope.interface import provider
 
 
@@ -17,42 +16,42 @@ class IFlickrGalleryMarker(Interface):
 
 @provider(IFormFieldProvider)
 class IFlickrGallery(model.Schema):
-    """
-    """
+    """ """
 
     flickr_set = schema.TextLine(
         title=_(
-            u'Flickr set id',
+            "Flickr set id",
         ),
         description=_(
-            u'',
+            "",
         ),
-        default=u'',
+        default="",
         required=False,
         readonly=False,
     )
 
     flickr_collection = schema.TextLine(
         title=_(
-            u'Flickr collection id',
+            "Flickr collection id",
         ),
         description=_(
-            u'',
+            "",
         ),
-        default=u'',
+        default="",
         required=False,
         readonly=False,
     )
 
+
 @implementer(IFlickrGallery)
 @adapter(IFlickrGalleryMarker)
-class FlickrGallery(object):
+class FlickrGallery:
     def __init__(self, context):
         self.context = context
 
     @property
     def flickr_set(self):
-        if safe_hasattr(self.context, 'flickr_set'):
+        if safe_hasattr(self.context, "flickr_set"):
             return self.context.flickr_set
         return None
 

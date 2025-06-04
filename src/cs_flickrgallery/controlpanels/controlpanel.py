@@ -1,47 +1,47 @@
-# -*- coding: utf-8 -*-
 from cs_flickrgallery import _
 from cs_flickrgallery.interfaces import IBrowserLayer
 from plone.app.registry.browser.controlpanel import ControlPanelFormWrapper
 from plone.app.registry.browser.controlpanel import RegistryEditForm
 from plone.restapi.controlpanels import RegistryConfigletPanel
 from plone.z3cform import layout
+from zope import schema
 from zope.component import adapter
 from zope.interface import Interface
-from zope import schema
+
 
 class IFlickrSettingsControlPanel(Interface):
     flickr_api_key = schema.TextLine(
         title=_(
-            u'Flickr API key',
+            "Flickr API key",
         ),
         description=_(
-            u'',
+            "",
         ),
-        default=u'',
+        default="",
         required=True,
         readonly=False,
     )
 
     flickr_api_secret = schema.TextLine(
         title=_(
-            u'Flickr API secret',
+            "Flickr API secret",
         ),
         description=_(
-            u'',
+            "",
         ),
-        default=u'',
+        default="",
         required=False,
         readonly=False,
     )
 
     flickr_user_id = schema.TextLine(
         title=_(
-            u'Flickr User ID',
+            "Flickr User ID",
         ),
         description=_(
-            u'',
+            "",
         ),
-        default=u'',
+        default="",
         required=False,
         readonly=False,
     )
@@ -56,7 +56,6 @@ class FlickrSettingsControlPanel(RegistryEditForm):
 FlickrSettingsControlPanelView = layout.wrap_form(
     FlickrSettingsControlPanel, ControlPanelFormWrapper
 )
-
 
 
 @adapter(Interface, IBrowserLayer)
