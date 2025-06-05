@@ -4,7 +4,6 @@ from logging import getLogger
 from plone import api
 from plone.memoize import ram
 from Products.Five.browser import BrowserView
-from collections import OrderedDict
 
 import flickrapi
 import time
