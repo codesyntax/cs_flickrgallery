@@ -97,6 +97,8 @@ Each of the images has the following structure:
 
 The project is licensed under GPLv2.
 
+Parts of this project have been adapted from [collective.ptg.flickr](https://github.com/collective/collective.ptg.flickr)
+
 ## Credits and acknowledgements 🙏
 
 Generated using [Cookieplone (0.9.7)](https://github.com/plone/cookieplone) and [cookieplone-templates (ed4fa08)](https://github.com/plone/cookieplone-templates/commit/ed4fa08f29fbca564b8871163f66a67ed5f4acf4) on 2025-06-04 13:23:09.646096. A special thanks to all contributors and supporters!

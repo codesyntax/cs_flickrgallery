@@ -1,3 +1,11 @@
+"""
+The code in this module has been adapted from the code on the
+collective.ptg.flickr project published at https://github.com/collective/collective.ptg.flickr
+
+The license of that code (GPL) is retained in this project.
+
+"""
+
 from cs_flickrgallery import _
 from cs_flickrgallery.utils import set_images
 from logging import getLogger
