@@ -4,6 +4,7 @@ from logging import getLogger
 from plone import api
 from plone.memoize import ram
 from Products.Five.browser import BrowserView
+from collections import OrderedDict
 
 import flickrapi
 import time
@@ -43,8 +44,11 @@ class UpdatePhotosFromFlickr(BrowserView):
             srcset.append(f"{size.get('source')} {size.get('width')}w")
 
         img_url = self.get_large_photo_url(image)
+
         return {
             "srcset": ", ".join(srcset),
+            "sizes": sorted(sizes, key=lambda x: x["width"]),
+            "sizes_dict": {item.get("label"): item for item in sizes},
             "image_url": img_url,
             "thumb_url": self.get_mini_photo_url(image),
             "link": self.get_photo_link(image),

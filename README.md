@@ -48,6 +48,8 @@ Each of the images has the following structure:
 
     {
         'srcset': "https://  75w, https:// 100w, https:// 200w", # perfect to render a img tag with srcset
+        'sizes': [{'label': 'Square', 'width': 75}, ...],        # all image sizes with their attributes, sorted from smallest to largest
+        'sizes_dict': {'Large': {'width': 75, ...}, ...}         # dict with all sizes, using size label as key
         'image_url': "https://",                                 # large photo url
         'thumb_url': "https://",                                 # mini photo url
         'link': "https://",                                      # photo's url in flickr
