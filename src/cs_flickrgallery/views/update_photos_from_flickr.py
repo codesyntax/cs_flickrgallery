@@ -210,10 +210,10 @@ class UpdatePhotosFromFlickr(BrowserView):
         return f"https://farm{photo.get('farm')}.static.flickr.com/{photo.get('server')}/{photo.get('id')}_{photo.get('secret')}_s.jpg"
 
     def get_photo_link(self, photo):
-        return f"https//www.flickr.com/photos/{self.flickr_username}/{photo.get('id')}/sizes/o/"
+        return f"https://www.flickr.com/photos/{self.flickr_username}/{photo.get('id')}/sizes/o/"
 
     def get_large_photo_url(self, photo):
-        return f"https//farm{photo.get('farm')}.static.flickr.com/{photo.get('server')}/{photo.get('id')}_{photo.get('secret')}{self.sizes['flickr']['large']}.jpg"
+        return f"https://farm{photo.get('farm')}.static.flickr.com/{photo.get('server')}/{photo.get('id')}_{photo.get('secret')}{self.sizes['flickr']['large']}.jpg"
 
     @property
     def flickr(self):
