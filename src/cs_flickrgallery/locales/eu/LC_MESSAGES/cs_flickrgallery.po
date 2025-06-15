@@ -60,7 +60,7 @@ msgstr "Kendu cs_flickrgallery-ren konfigurazioa"
 
 #: cs_flickrgallery/viewlets/flickr_gallery_admin_viewlet.pt:10
 msgid "You have ${photos} photos from Flickr"
-msgstr "Flickreko ${photos} dituzu"
+msgstr "Flickreko ${photos} argazki dituzu"
 
 #: cs_flickrgallery/profiles.zcml:13
 msgid "cs_flickrgallery: Install"
