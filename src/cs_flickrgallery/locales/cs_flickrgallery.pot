@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2022-05-25 17:12+0000\n"
+"POT-Creation-Date: 2025-06-15 11:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,3 +16,59 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: cs_flickrgallery\n"
+
+#: cs_flickrgallery/controlpanels/controlpanel.py:14
+msgid "Flickr API key"
+msgstr ""
+
+#: cs_flickrgallery/controlpanels/controlpanel.py:26
+msgid "Flickr API secret"
+msgstr ""
+
+#: cs_flickrgallery/controlpanels/controlpanel.py:53
+msgid "Flickr Settings"
+msgstr ""
+
+#: cs_flickrgallery/controlpanels/controlpanel.py:38
+msgid "Flickr User ID"
+msgstr ""
+
+#: cs_flickrgallery/behaviors/flickr_gallery.py:35
+msgid "Flickr collection id"
+msgstr ""
+
+#: cs_flickrgallery/behaviors/flickr_gallery.py:20
+msgid "Flickr configuration"
+msgstr ""
+
+#: cs_flickrgallery/behaviors/flickr_gallery.py:23
+msgid "Flickr set id"
+msgstr ""
+
+#: cs_flickrgallery/viewlets/flickr_gallery_admin_viewlet.pt:18
+msgid "Force update"
+msgstr ""
+
+#: cs_flickrgallery/profiles.zcml:13
+msgid "Package to configure a new cs_flickrgallery site"
+msgstr ""
+
+#: cs_flickrgallery/views/update_photos_from_flickr.py:34
+msgid "Photos imported from Flickr"
+msgstr ""
+
+#: cs_flickrgallery/profiles.zcml:21
+msgid "Uninstall cs_flickrgallery setup."
+msgstr ""
+
+#: cs_flickrgallery/viewlets/flickr_gallery_admin_viewlet.pt:10
+msgid "You have ${photos} photos from Flickr"
+msgstr ""
+
+#: cs_flickrgallery/profiles.zcml:13
+msgid "cs_flickrgallery: Install"
+msgstr ""
+
+#: cs_flickrgallery/profiles.zcml:21
+msgid "cs_flickrgallery: Uninstall"
+msgstr ""

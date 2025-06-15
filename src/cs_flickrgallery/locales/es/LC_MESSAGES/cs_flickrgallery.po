@@ -16,51 +16,51 @@ msgstr ""
 
 #: cs_flickrgallery/controlpanels/controlpanel.py:14
 msgid "Flickr API key"
-msgstr ""
+msgstr "Clave de API de Flickr"
 
 #: cs_flickrgallery/controlpanels/controlpanel.py:26
 msgid "Flickr API secret"
-msgstr ""
+msgstr "Secreto de API de Flickr"
 
 #: cs_flickrgallery/controlpanels/controlpanel.py:53
 msgid "Flickr Settings"
-msgstr ""
+msgstr "Configuración de Flickr"
 
 #: cs_flickrgallery/controlpanels/controlpanel.py:38
 msgid "Flickr User ID"
-msgstr ""
+msgstr "ID de usuario de Flickr"
 
 #: cs_flickrgallery/behaviors/flickr_gallery.py:35
 msgid "Flickr collection id"
-msgstr ""
+msgstr "ID de colección de Flickr"
 
 #: cs_flickrgallery/behaviors/flickr_gallery.py:20
 msgid "Flickr configuration"
-msgstr ""
+msgstr "Configuración de Flickr"
 
 #: cs_flickrgallery/behaviors/flickr_gallery.py:23
 msgid "Flickr set id"
-msgstr ""
+msgstr "ID del set de Flickr"
 
 #: cs_flickrgallery/viewlets/flickr_gallery_admin_viewlet.pt:18
 msgid "Force update"
-msgstr ""
+msgstr "Forzar actualización"
 
 #: cs_flickrgallery/profiles.zcml:13
 msgid "Package to configure a new cs_flickrgallery site"
-msgstr ""
+msgstr "Instalación de la configuración de cs_flickrgallery"
 
 #: cs_flickrgallery/views/update_photos_from_flickr.py:34
 msgid "Photos imported from Flickr"
-msgstr ""
+msgstr "Fotos inportadas de Flickr"
 
 #: cs_flickrgallery/profiles.zcml:21
 msgid "Uninstall cs_flickrgallery setup."
-msgstr ""
+msgstr "Desinstalar configuración de Flickr"
 
 #: cs_flickrgallery/viewlets/flickr_gallery_admin_viewlet.pt:10
 msgid "You have ${photos} photos from Flickr"
-msgstr ""
+msgstr "Tienes ${photos} de Flickr"
 
 #: cs_flickrgallery/profiles.zcml:13
 msgid "cs_flickrgallery: Install"

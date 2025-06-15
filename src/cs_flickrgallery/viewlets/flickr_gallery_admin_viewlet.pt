@@ -1,6 +1,10 @@
 <div class="statusmessage-warning alert alert-warning"
      id="flickr_gallery"
      role="alert"
+     i18n:domain="cs_flickrgallery"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
 >
   <p i18n:translate="">You have
     <span tal:content="view/get_number_of_photos"
