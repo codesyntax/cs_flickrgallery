@@ -17,6 +17,8 @@ class IFlickrGalleryMarker(Interface):
 class IFlickrGallery(model.Schema):
     """ """
 
+    model.fieldset("flickr", label=_("Flickr configuration"), fields=("flickr_set", "flickr_collection"))
+
     flickr_set = schema.TextLine(
         title=_(
             "Flickr set id",
