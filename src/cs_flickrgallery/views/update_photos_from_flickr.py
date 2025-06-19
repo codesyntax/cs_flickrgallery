@@ -6,15 +6,25 @@ The license of that code (GPL) is retained in this project.
 
 """
 
-from cs_flickrgallery import _
-from cs_flickrgallery.utils import set_images
+import time
 from logging import getLogger
+
+import flickrapi
 from plone import api
 from plone.memoize import ram
 from Products.Five.browser import BrowserView
 
-import flickrapi
-import time
+from cs_flickrgallery import _
+from cs_flickrgallery.utils import set_images
+
+try:
+    from plone.app.multilingual.api import get_translation_manager
+    HAS_PAM = True
+except ImportError:
+    HAS_PAM = False
+
+
+logger = getLogger(__name__)
 
 
 def empty(v):
@@ -29,6 +39,11 @@ class UpdatePhotosFromFlickr(BrowserView):
     def __call__(self):
         images = self.retrieve_images()
         set_images(self.context, images)
+        if HAS_PAM:
+            manager = get_translation_manager(self.context)
+            for translation in manager.get_restricted_translations().values():
+                set_images(translation, images)
+                logger.info("Images set in translation: %s", translation.getId())
 
         api.portal.show_message(
             _("Photos imported from Flickr"), request=self.request, type="info"
