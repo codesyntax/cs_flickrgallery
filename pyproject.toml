@@ -45,6 +45,9 @@ Tracker = "https://github.com/codesyntax/cs_flickrgallery/issues"
 [project.entry-points."plone.autoinclude.plugin"]
 target = "plone"
 
+[project.scripts]
+import_photos_from_flickr = "cs_flickrgallery.scripts.import_photos_from_flickr:main"
+
 [tool.uv]
 managed = false
 
