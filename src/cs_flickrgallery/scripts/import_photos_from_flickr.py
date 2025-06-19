@@ -1,27 +1,19 @@
-# -*- coding: utf-8 -*-
-import logging
-import sys
-
-import transaction
-from AccessControl.SecurityManagement import newSecurityManager
-from AccessControl.SecurityManager import setSecurityPolicy
+from .utils import get_app
+from .utils import get_site
+from .utils import setup_logger_console
+from cs_flickrgallery import logger
+from cs_flickrgallery.behaviors.flickr_gallery import IFlickrGalleryMarker
+from cs_flickrgallery.utils import get_images
 from plone import api
 from plone.i18n.interfaces import ILanguageSchema
 from plone.registry.interfaces import IRegistry
-from Products.CMFCore.tests.base.security import (
-    OmnipotentUser,
-    PermissiveSecurityPolicy,
-)
-from Testing.makerequest import makerequest
-from zope.component import getMultiAdapter, getUtility
-from zope.component.hooks import setSite
-
-from cs_flickrgallery.behaviors.flickr_gallery import IFlickrGalleryMarker
-from cs_flickrgallery.utils import get_images
-from cs_flickrgallery import logger
-import argparse
-from .utils import get_app, _process_path, setup_logger_console, get_site
+from zope.component import getMultiAdapter
+from zope.component import getUtility
 from zope.component import hooks
+
+import argparse
+import sys
+import transaction
 
 
 def _parse_args(description: str, options: dict, args: list):
@@ -36,11 +28,14 @@ def _parse_args(description: str, options: dict, args: list):
 
 
 def main(args=sys.argv):
-    namespace = _parse_args("Import content into a Plone Site",
-                            {
+    namespace = _parse_args(
+        "Import content into a Plone Site",
+        {
             "zopeconf": "Path to zope.conf",
             "site": "Plone site ID to export the content from",
-        }, args)
+        },
+        args,
+    )
     app = get_app(namespace.zopeconf)
 
     setup_logger_console(logger)
@@ -52,9 +47,10 @@ def main(args=sys.argv):
         )
         default_language = language_settings.default_language
         brains = api.content.find(
-            Language=default_language, object_provides=IFlickrGalleryMarker
-        .__identifier__)
-        logger.info('Found %s items to process', len(brains))
+            Language=default_language,
+            object_provides=IFlickrGalleryMarker.__identifier__,
+        )
+        logger.info("Found %s items to process", len(brains))
         for brain in brains:
             logger.info("Processing gallery at %s", brain.getPath())
             obj = brain.getObject()
@@ -66,9 +62,9 @@ def main(args=sys.argv):
                         (obj, site.REQUEST), name="update_photos_from_flickr"
                     )
                     update_photos_from_flickr()
-                    logger.info('Gallery processed')
+                    logger.info("Gallery processed")
             else:
                 logger.info("Gallery not linked to Flickr")
 
-            transaction.commit()
-        logger.info('Done')
+        transaction.commit()
+        logger.info("Done")

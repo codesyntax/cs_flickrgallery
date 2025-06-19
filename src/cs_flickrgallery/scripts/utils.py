@@ -3,25 +3,24 @@ utils.py module copied from plone.exportimport under the terms
 of the GPLv2
 """
 
+from ..interfaces import IBrowserLayer
 from AccessControl.SecurityManagement import newSecurityManager
 from AccessControl.users import system as user
 from pathlib import Path
 from plone.restapi.interfaces import IPloneRestapiLayer
 from Products.CMFPlone.Portal import PloneSite
 from Testing.makerequest import makerequest
-from typing import Optional
-from Zope2.Startup.run import make_wsgi_app
 from zope.globalrequest import setRequest
 from zope.interface import directlyProvidedBy
 from zope.interface import directlyProvides
-from ..interfaces import IBrowserLayer
+from Zope2.Startup.run import make_wsgi_app
 
 import logging
 import sys
 import Zope2
 
 
-def _process_path(path: str) -> Optional[Path]:
+def _process_path(path: str) -> Path | None:
     """Process path."""
     path = Path(path).resolve()
     return path if path.exists() else None
@@ -66,7 +65,7 @@ def get_app(zopeconf: Path):
     return app
 
 
-def get_site(app, site_id: str, logger: logging.Logger) -> Optional[PloneSite]:
+def get_site(app, site_id: str, logger: logging.Logger) -> PloneSite | None:
     """Get Plone Site"""
     if site_id not in app.objectIds():
         logger.error(f"Plone site with id '{site_id}' does not exist, aborting export.")

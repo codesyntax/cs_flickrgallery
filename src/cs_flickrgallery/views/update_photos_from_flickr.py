@@ -6,19 +6,20 @@ The license of that code (GPL) is retained in this project.
 
 """
 
-import time
+from cs_flickrgallery import _
+from cs_flickrgallery.utils import set_images
 from logging import getLogger
-
-import flickrapi
 from plone import api
 from plone.memoize import ram
 from Products.Five.browser import BrowserView
 
-from cs_flickrgallery import _
-from cs_flickrgallery.utils import set_images
+import flickrapi
+import time
+
 
 try:
     from plone.app.multilingual.api import get_translation_manager
+
     HAS_PAM = True
 except ImportError:
     HAS_PAM = False
