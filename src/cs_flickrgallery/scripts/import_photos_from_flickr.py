@@ -70,5 +70,5 @@ def main(args=sys.argv):
             else:
                 logger.info("Gallery not linked to Flickr")
 
-        transaction.commit()
+            transaction.commit()
         logger.info('Done')
