@@ -166,3 +166,6 @@ source_pkgs = ["cs_flickrgallery", "tests"]
 branch = true
 parallel = true
 omit = ["src/cs_flickrgallery/locales/*.py"]
+
+[tool.zest-releaser]
+python-file-with-version = "src/cs_flickrgallery/__init__.py"
