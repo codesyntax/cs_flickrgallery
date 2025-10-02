@@ -18,11 +18,11 @@ import transaction
 
 def _parse_args(description: str, options: dict, args: list):
     parser = argparse.ArgumentParser(description=description)
-    for key, help in options.items():
+    for key, help_text in options.items():
         if key.startswith("-"):
-            parser.add_argument(key, action="store_true", help=help)
+            parser.add_argument(key, action="store_true", help=help_text)
         else:
-            parser.add_argument(key, help=help)
+            parser.add_argument(key, help=help_text)
     namespace, _ = parser.parse_known_args(args[1:])
     return namespace
 
