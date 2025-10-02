@@ -6,24 +6,20 @@ The license of that code (GPL) is retained in this project.
 
 """
 
-from cs_flickrgallery import _
-from cs_flickrgallery.utils import set_images
+import time
 from logging import getLogger
+
+import flickrapi
+from cs_flickrgallery import _
+from cs_flickrgallery.utils import is_multilingual_installed, set_images
 from plone import api
 from plone.memoize import ram
 from Products.Five.browser import BrowserView
 
-import flickrapi
-import time
-
-
 try:
     from plone.app.multilingual.api import get_translation_manager
-
-    HAS_PAM = True
 except ImportError:
-    HAS_PAM = False
-
+    get_translation_manager = None
 
 logger = getLogger(__name__)
 
@@ -49,7 +45,7 @@ class UpdatePhotosFromFlickr(BrowserView):
     def __call__(self):
         images = self.retrieve_images()
         set_images(self.context, images)
-        if HAS_PAM:
+        if is_multilingual_installed():
             manager = get_translation_manager(self.context)
             for translation in manager.get_restricted_translations().values():
                 set_images(translation, images)
