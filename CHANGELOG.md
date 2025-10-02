@@ -8,3 +8,10 @@
 -->
 
 <!-- towncrier release notes start -->
+
+## 1.0.0 (2025-10-02)
+
+
+### New features:
+
+- Initial release @erral
