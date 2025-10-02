@@ -36,6 +36,15 @@ def cache_key(fun, self):
     return (fun.__name__, self.context.absolute_url(), time.time() // 60 * 60 * 15)
 
 
+SIZES = {
+    "small": {"width": 500, "height": 375},
+    "medium": {"width": 640, "height": 480},
+    "large": {"width": 1024, "height": 768},
+    "thumb": {"width": 72, "height": 72},
+    "flickr": {"small": "_m", "medium": "", "large": "_b"},
+}
+
+
 class UpdatePhotosFromFlickr(BrowserView):
     def __call__(self):
         images = self.retrieve_images()
@@ -50,14 +59,6 @@ class UpdatePhotosFromFlickr(BrowserView):
             _("Photos imported from Flickr"), request=self.request, type="info"
         )
         return self.request.response.redirect(self.context.absolute_url())
-
-    sizes = {
-        "small": {"width": 500, "height": 375},
-        "medium": {"width": 640, "height": 480},
-        "large": {"width": 1024, "height": 768},
-        "thumb": {"width": 72, "height": 72},
-        "flickr": {"small": "_m", "medium": "", "large": "_b"},
-    }
 
     def assemble_image_information(self, image):
         photo = self.flickr.photos.getSizes(photo_id=image.get("id"))
@@ -229,7 +230,7 @@ class UpdatePhotosFromFlickr(BrowserView):
         return f"https://www.flickr.com/photos/{self.flickr_username}/{photo.get('id')}/sizes/o/"
 
     def get_large_photo_url(self, photo):
-        return f"https://farm{photo.get('farm')}.static.flickr.com/{photo.get('server')}/{photo.get('id')}_{photo.get('secret')}{self.sizes['flickr']['large']}.jpg"
+        return f"https://farm{photo.get('farm')}.static.flickr.com/{photo.get('server')}/{photo.get('id')}_{photo.get('secret')}{SIZES['flickr']['large']}.jpg"
 
     @property
     def flickr(self):
