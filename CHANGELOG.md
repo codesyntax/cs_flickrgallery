@@ -9,6 +9,13 @@
 
 <!-- towncrier release notes start -->
 
+## 1.1.0 (2025-10-02)
+
+
+### New features:
+
+- Make it work without requiring plone.app.multilingual @erral [#1](https://github.com/codesyntax/cs_flickrgallery/issues/1)
+
 ## 1.0.0 (2025-10-02)
 
 
