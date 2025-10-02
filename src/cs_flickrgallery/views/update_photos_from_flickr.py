@@ -280,7 +280,8 @@ class UpdatePhotosFromFlickr(BrowserView):
         else:
             log = getLogger(__name__)
             log.info(
-                "No Flickr photoset or collection provided, or not owned by user (%s). No images to show.",
+                "No Flickr photoset or collection provided, "
+                "or not owned by user (%s). No images to show.",
                 user_id,
             )
 
