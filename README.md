@@ -8,7 +8,7 @@ Install cs_flickrgallery adding it to your project's dependencies.
 
 Then go to the Plone's add-on controlpanel and install it from there.
 
-## Configuration and usage
+## Configuration
 
 A new control panel will be added in the Plone's Site Setup, where you should configure the Flickr API Key and the username
 from which your images will be fetched.
@@ -39,6 +39,60 @@ If you are applying the behavior in your project add-on, you can also apply the 
   </property>
 ...
 ```
+
+## Usage (Volto)
+
+The behavior provides a read-only field called `flickr_images` with the list of all images.
+
+This field can be retrieved using the [@inherit endpoint](https://plonerestapi.readthedocs.io/en/latest/endpoints/inherit.html) of plone.restapi as follows:
+
+```
+GET /plone/document/@inherit?expand.inherit.behaviors=cs.flickrgallery.flickr_gallery HTTP/1.1
+Accept: application/json
+```
+
+The response will include the image information and also the flickr set identification:
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "@id": "http://localhost:55001/plone/document/@inherit?expand.inherit.behaviors=plone.navigationroot",
+    "cs.fklickrgallery.flickr_gallery": {
+        "data": {
+          "flickr_collection": null,
+          "flickr_images": [
+            {...},
+            {...},
+            {
+              "srcset": "https://  75w, https:// 100w, https:// 200w", # perfect to render a img tag with srcset
+              "sizes": [{'label': 'Square', 'width': 75}, ...],        # all image sizes with their attributes, sorted from smallest to largest
+              "sizes_dict": {'Large': {'width': 75, ...}, ...},        # dict with all sizes, using size label as key
+              "image_url": "",                                         # large photo url
+              "thumb_url: "",                                          # mini photo url
+              "link": "https://",                                      # photo's url in flickr
+              "title": "Some Title",
+              "description": "",
+              "original_image_url": "https://",                        # original photo url
+              "download_url": "https://",                              # download url
+              "copyright": "",
+              "portal_type": "_flickr",
+              "keywords": "",
+              "bodytext": ""
+            },
+          ],
+          "flickr_set": 21564654151
+        },
+        "from": {
+            "@id": "http://localhost:55001/plone",
+            "title": "Plone site"
+        }
+    }
+}
+```
+
+## Usage (Classic)
 
 It will be common that you want to show the images using a gallery script of your choice, to do so, you can call the utility method `cs_flickrgallery.utils.get_images` passing the context object where you have saved the collection id, and it will return a list with items representing the image.
 

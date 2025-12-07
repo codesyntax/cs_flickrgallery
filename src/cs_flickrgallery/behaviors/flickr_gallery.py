@@ -7,6 +7,9 @@ from zope.component import adapter
 from zope.interface import implementer
 from zope.interface import Interface
 from zope.interface import provider
+from plone.schema import JSONField
+from cs_flickrgallery.utils import get_images
+from cs_flickrgallery import logger
 
 
 class IFlickrGalleryMarker(Interface):
@@ -20,7 +23,7 @@ class IFlickrGallery(model.Schema):
     model.fieldset(
         "flickr",
         label=_("Flickr configuration"),
-        fields=("flickr_set", "flickr_collection"),
+        fields=("flickr_set", "flickr_collection", "flickr_images"),
     )
 
     flickr_set = schema.TextLine(
@@ -45,6 +48,16 @@ class IFlickrGallery(model.Schema):
         default="",
         required=False,
         readonly=False,
+    )
+
+    flickr_images = JSONField(
+        title=_("Flickr images"),
+        description=_(
+            "This is a read-only field, only used to return the list of images."
+        ),
+        default={},
+        required=False,
+        readonly=True,
     )
 
 
@@ -73,3 +86,11 @@ class FlickrGallery:
     @flickr_collection.setter
     def flickr_collection(self, value):
         self.context.flickr_collection = value
+
+    @property
+    def flickr_images(self):
+        return list(get_images(self.context))
+
+    @flickr_collection.setter
+    def flickr_collection(self, value):
+        logger.info("Nothing should be done here")

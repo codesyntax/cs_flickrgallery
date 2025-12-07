@@ -1,0 +1,1 @@
+Add restapi support through @inherit endpoint @erral
