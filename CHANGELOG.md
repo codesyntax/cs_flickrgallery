@@ -9,6 +9,13 @@
 
 <!-- towncrier release notes start -->
 
+## 1.2 (2025-12-07)
+
+
+### New features:
+
+- Add restapi support through @inherit endpoint @erral 
+
 ## 1.1.0 (2025-10-02)
 
 
