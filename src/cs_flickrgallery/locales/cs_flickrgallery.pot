@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2025-06-15 11:38+0000\n"
+"POT-Creation-Date: 2026-03-30 09:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,31 +17,42 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: cs_flickrgallery\n"
 
+#: cs_flickrgallery/behaviors/flickr_gallery.py:70
 #: cs_flickrgallery/controlpanels/controlpanel.py:14
 msgid "Flickr API key"
 msgstr ""
 
+#: cs_flickrgallery/behaviors/flickr_gallery.py:83
 #: cs_flickrgallery/controlpanels/controlpanel.py:26
 msgid "Flickr API secret"
+msgstr ""
+
+#: cs_flickrgallery/behaviors/flickr_gallery.py:65
+msgid "Flickr API settings"
 msgstr ""
 
 #: cs_flickrgallery/controlpanels/controlpanel.py:53
 msgid "Flickr Settings"
 msgstr ""
 
+#: cs_flickrgallery/behaviors/flickr_gallery.py:96
 #: cs_flickrgallery/controlpanels/controlpanel.py:38
 msgid "Flickr User ID"
 msgstr ""
 
-#: cs_flickrgallery/behaviors/flickr_gallery.py:35
+#: cs_flickrgallery/behaviors/flickr_gallery.py:25
+msgid "Flickr album configuration"
+msgstr ""
+
+#: cs_flickrgallery/behaviors/flickr_gallery.py:42
 msgid "Flickr collection id"
 msgstr ""
 
-#: cs_flickrgallery/behaviors/flickr_gallery.py:20
-msgid "Flickr configuration"
+#: cs_flickrgallery/behaviors/flickr_gallery.py:54
+msgid "Flickr images"
 msgstr ""
 
-#: cs_flickrgallery/behaviors/flickr_gallery.py:23
+#: cs_flickrgallery/behaviors/flickr_gallery.py:30
 msgid "Flickr set id"
 msgstr ""
 
@@ -53,12 +64,20 @@ msgstr ""
 msgid "Package to configure a new cs_flickrgallery site"
 msgstr ""
 
-#: cs_flickrgallery/views/update_photos_from_flickr.py:34
+#: cs_flickrgallery/views/update_photos_from_flickr.py:57
 msgid "Photos imported from Flickr"
+msgstr ""
+
+#: cs_flickrgallery/behaviors/flickr_gallery.py:55
+msgid "This is a read-only field, only used to return the list of images."
 msgstr ""
 
 #: cs_flickrgallery/profiles.zcml:21
 msgid "Uninstall cs_flickrgallery setup."
+msgstr ""
+
+#: cs_flickrgallery/behaviors/flickr_gallery.py:73
+msgid "Use this setting to override site-wide one, in case this specific album is from a different user."
 msgstr ""
 
 #: cs_flickrgallery/viewlets/flickr_gallery_admin_viewlet.pt:10
