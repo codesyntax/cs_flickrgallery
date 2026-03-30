@@ -75,7 +75,7 @@ class IFlickrGallery(model.Schema):
             "specific album is from a different user.",
         ),
         default="",
-        required=True,
+        required=False,
         readonly=False,
     )
 
