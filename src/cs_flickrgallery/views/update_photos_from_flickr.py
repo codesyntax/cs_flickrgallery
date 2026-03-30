@@ -6,15 +6,17 @@ The license of that code (GPL) is retained in this project.
 
 """
 
-import time
-from logging import getLogger
-
-import flickrapi
 from cs_flickrgallery import _
-from cs_flickrgallery.utils import is_multilingual_installed, set_images
+from cs_flickrgallery.utils import is_multilingual_installed
+from cs_flickrgallery.utils import set_images
+from logging import getLogger
 from plone import api
 from plone.memoize import ram
 from Products.Five.browser import BrowserView
+
+import flickrapi
+import time
+
 
 try:
     from plone.app.multilingual.api import get_translation_manager
@@ -122,7 +124,8 @@ class UpdatePhotosFromFlickr(BrowserView):
         # Must be an username.
         try:
             return (
-                flickr.people_findByUsername(username=username)
+                flickr
+                .people_findByUsername(username=username)
                 .get("user", {})
                 .get("nsid", "")
                 .strip()
@@ -132,7 +135,8 @@ class UpdatePhotosFromFlickr(BrowserView):
         except Exception:
             try:
                 return (
-                    flickr.people_getInfo(user_id=username)
+                    flickr
+                    .people_getInfo(user_id=username)
                     .get("person", {})
                     .get("nsid", "")
                     .strip()
@@ -158,7 +162,8 @@ class UpdatePhotosFromFlickr(BrowserView):
         # photosets = flickr.photosets_getList(
         #     user_id=user_id).find('photosets').getchildren()
         photosets = (
-            flickr.photosets.getList(user_id=user_id)
+            flickr.photosets
+            .getList(user_id=user_id)
             .get("photosets", {})
             .get("photoset", [])
         )
@@ -182,7 +187,8 @@ class UpdatePhotosFromFlickr(BrowserView):
         # Yield all photosets.
         # Exception handling is expected to be made by calling context.
         yield from (
-            flickr.collections.getTree(user_id=user_id, collection_id=collection_id)
+            flickr.collections
+            .getTree(user_id=user_id, collection_id=collection_id)
             .get("collections", {})
             .get("collection", [])
         )
@@ -194,7 +200,8 @@ class UpdatePhotosFromFlickr(BrowserView):
         # Exception handling is expected to be made by calling context.
 
         yield from (
-            flickr.photosets.getPhotos(
+            flickr.photosets
+            .getPhotos(
                 user_id=user_id,
                 photoset_id=photoset_id,
                 extras="date_upload",
