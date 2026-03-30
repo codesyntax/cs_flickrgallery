@@ -9,6 +9,13 @@
 
 <!-- towncrier release notes start -->
 
+## 1.3.1 (2026-03-30)
+
+
+### Bug fixes:
+
+- Flicrk Api key is not required in behavior field @erral 
+
 ## 1.3 (2026-03-30)
 
 
