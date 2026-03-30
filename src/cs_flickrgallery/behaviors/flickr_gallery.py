@@ -1,15 +1,15 @@
 from cs_flickrgallery import _
+from cs_flickrgallery import logger
+from cs_flickrgallery.utils import get_images
 from plone import schema
 from plone.autoform.interfaces import IFormFieldProvider
+from plone.schema import JSONField
 from plone.supermodel import model
 from Products.CMFPlone.utils import safe_hasattr
 from zope.component import adapter
 from zope.interface import implementer
 from zope.interface import Interface
 from zope.interface import provider
-from plone.schema import JSONField
-from cs_flickrgallery.utils import get_images
-from cs_flickrgallery import logger
 
 
 class IFlickrGalleryMarker(Interface):
@@ -71,7 +71,8 @@ class IFlickrGallery(model.Schema):
             "Flickr API key",
         ),
         description=_(
-            "Use this setting to override site-wide one, in case this specific album is from a different user.",
+            "Use this setting to override site-wide one, in case this "
+            "specific album is from a different user.",
         ),
         default="",
         required=True,
@@ -83,7 +84,8 @@ class IFlickrGallery(model.Schema):
             "Flickr API secret",
         ),
         description=_(
-            "Use this setting to override site-wide one, in case this specific album is from a different user.",
+            "Use this setting to override site-wide one, in case this "
+            "specific album is from a different user.",
         ),
         default="",
         required=False,
@@ -95,7 +97,8 @@ class IFlickrGallery(model.Schema):
             "Flickr User ID",
         ),
         description=_(
-            "Use this setting to override site-wide one, in case this specific album is from a different user.",
+            "Use this setting to override site-wide one, in case this "
+            "specific album is from a different user.",
         ),
         default="",
         required=False,
