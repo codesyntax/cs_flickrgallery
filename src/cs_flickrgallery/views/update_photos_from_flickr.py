@@ -84,7 +84,7 @@ class UpdatePhotosFromFlickr(BrowserView):
 
     @property
     def flickr_username(self):
-        return api.portal.get_registry_record(
+        return self.context.flickr_user_id or api.portal.get_registry_record(
             "cs_flickrgallery.flickr_settings.flickr_user_id"
         )
 
@@ -98,13 +98,13 @@ class UpdatePhotosFromFlickr(BrowserView):
 
     @property
     def flickr_api_key(self):
-        return api.portal.get_registry_record(
+        return self.context.flickr_api_key or api.portal.get_registry_record(
             "cs_flickrgallery.flickr_settings.flickr_api_key"
         )
 
     @property
     def flickr_api_secret(self):
-        return api.portal.get_registry_record(
+        return self.context.flickr_api_secret or api.portal.get_registry_record(
             "cs_flickrgallery.flickr_settings.flickr_api_secret"
         )
 
@@ -123,8 +123,8 @@ class UpdatePhotosFromFlickr(BrowserView):
         try:
             return (
                 flickr.people_findByUsername(username=username)
-                .find("user")
-                .get("nsid")
+                .get("user", {})
+                .get("nsid", "")
                 .strip()
             )
 
@@ -133,8 +133,8 @@ class UpdatePhotosFromFlickr(BrowserView):
             try:
                 return (
                     flickr.people_getInfo(user_id=username)
-                    .find("person")
-                    .get("nsid")
+                    .get("person", {})
+                    .get("nsid", "")
                     .strip()
                 )
 
@@ -248,6 +248,7 @@ class UpdatePhotosFromFlickr(BrowserView):
     def retrieve_images(self):
         # These values are expected to be valid. We trust the user.
         user_id = self.flickr_username
+        user_id = self.get_flickr_user_id()
         photoset_id = self.get_flickr_photoset_id(user_id=user_id)
         collection_id = self.flickr_collection
 
