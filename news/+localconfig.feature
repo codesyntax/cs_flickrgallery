@@ -1,0 +1,1 @@
+Allow configuring local Flickr API settings to override site-wide settings @erral
