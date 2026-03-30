@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2025-06-15 11:38+0000\n"
+"POT-Creation-Date: 2026-03-30 09:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,31 +14,42 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: cs_flickrgallery\n"
 
+#: cs_flickrgallery/behaviors/flickr_gallery.py:70
 #: cs_flickrgallery/controlpanels/controlpanel.py:14
 msgid "Flickr API key"
 msgstr "Clave de API de Flickr"
 
+#: cs_flickrgallery/behaviors/flickr_gallery.py:83
 #: cs_flickrgallery/controlpanels/controlpanel.py:26
 msgid "Flickr API secret"
 msgstr "Secreto de API de Flickr"
+
+#: cs_flickrgallery/behaviors/flickr_gallery.py:65
+msgid "Flickr API settings"
+msgstr "Configuración de la API de Flickr"
 
 #: cs_flickrgallery/controlpanels/controlpanel.py:53
 msgid "Flickr Settings"
 msgstr "Configuración de Flickr"
 
+#: cs_flickrgallery/behaviors/flickr_gallery.py:96
 #: cs_flickrgallery/controlpanels/controlpanel.py:38
 msgid "Flickr User ID"
 msgstr "ID de usuario de Flickr"
 
-#: cs_flickrgallery/behaviors/flickr_gallery.py:35
+#: cs_flickrgallery/behaviors/flickr_gallery.py:25
+msgid "Flickr album configuration"
+msgstr "Configuración del album de Flickr"
+
+#: cs_flickrgallery/behaviors/flickr_gallery.py:42
 msgid "Flickr collection id"
 msgstr "ID de colección de Flickr"
 
-#: cs_flickrgallery/behaviors/flickr_gallery.py:20
-msgid "Flickr configuration"
-msgstr "Configuración de Flickr"
+#: cs_flickrgallery/behaviors/flickr_gallery.py:54
+msgid "Flickr images"
+msgstr "Imágenes de Flickr"
 
-#: cs_flickrgallery/behaviors/flickr_gallery.py:23
+#: cs_flickrgallery/behaviors/flickr_gallery.py:30
 msgid "Flickr set id"
 msgstr "ID del set de Flickr"
 
@@ -50,13 +61,21 @@ msgstr "Forzar actualización"
 msgid "Package to configure a new cs_flickrgallery site"
 msgstr "Instalación de la configuración de cs_flickrgallery"
 
-#: cs_flickrgallery/views/update_photos_from_flickr.py:34
+#: cs_flickrgallery/views/update_photos_from_flickr.py:57
 msgid "Photos imported from Flickr"
 msgstr "Fotos inportadas de Flickr"
+
+#: cs_flickrgallery/behaviors/flickr_gallery.py:55
+msgid "This is a read-only field, only used to return the list of images."
+msgstr "Es un campo de solo lectura, utilizado solo para devolver el listado de imágenes."
 
 #: cs_flickrgallery/profiles.zcml:21
 msgid "Uninstall cs_flickrgallery setup."
 msgstr "Desinstalar configuración de Flickr"
+
+#: cs_flickrgallery/behaviors/flickr_gallery.py:73
+msgid "Use this setting to override site-wide one, in case this specific album is from a different user."
+msgstr "Utilice esta configuración para sobreescribir la configuración global solo en el caso de que este album pertenezca a otro usuario."
 
 #: cs_flickrgallery/viewlets/flickr_gallery_admin_viewlet.pt:10
 msgid "You have ${photos} photos from Flickr"
@@ -64,8 +83,8 @@ msgstr "Tienes ${photos} de Flickr"
 
 #: cs_flickrgallery/profiles.zcml:13
 msgid "cs_flickrgallery: Install"
-msgstr ""
+msgstr "cs_flickrgallery: instalar"
 
 #: cs_flickrgallery/profiles.zcml:21
 msgid "cs_flickrgallery: Uninstall"
-msgstr ""
+msgstr "cs_flickrgallery: desinstalar"
