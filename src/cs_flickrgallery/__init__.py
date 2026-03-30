@@ -5,7 +5,7 @@ from zope.i18nmessageid import MessageFactory
 import logging
 
 
-__version__ = "1.3.dev0"
+__version__ = "1.3"
 
 PACKAGE_NAME = "cs_flickrgallery"
 

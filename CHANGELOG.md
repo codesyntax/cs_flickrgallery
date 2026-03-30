@@ -9,6 +9,23 @@
 
 <!-- towncrier release notes start -->
 
+## 1.3 (2026-03-30)
+
+
+### New features:
+
+- Allow configuring local Flickr API settings to override site-wide settings @erral 
+
+
+### Bug fixes:
+
+- Allow entering usernames and delegate converting it user-id @erral 
+
+
+### Internal:
+
+- Refactor Flickr connection to be reusable @erral 
+
 ## 1.2 (2025-12-07)
 
 
