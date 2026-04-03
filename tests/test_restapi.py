@@ -8,7 +8,6 @@ from plone.testing.zope import Browser
 from unittest.mock import patch
 from zope.interface import alsoProvides
 
-import requests
 import transaction
 import unittest
 import urllib.error

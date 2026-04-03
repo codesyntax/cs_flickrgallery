@@ -1,7 +1,6 @@
 from cs_flickrgallery.flickr import empty
 from cs_flickrgallery.flickr import FlickrClient
 from cs_flickrgallery.flickr import FlickrUpdater
-from unittest.mock import MagicMock
 from unittest.mock import patch
 
 import unittest
