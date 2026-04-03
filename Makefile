@@ -137,3 +137,36 @@ release: $(VENV_FOLDER) ## Create a release
 	@echo "$(GREEN)==> Create a release$(RESET)"
 	@uv pip install -e ".[release]"
 	@uv run fullrelease
+# Docs
+# Internal variables.
+SPHINXOPTS      ?=
+PAPER           ?=
+SPHINXBUILD     = uv run sphinx-build
+DOCS_DIR        = ./docs/
+BUILDDIR        = ./_build
+PAPEROPT_a4     = -D latex_paper_size=a4
+PAPEROPT_letter = -D latex_paper_size=letter
+ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) $(DOCS_DIR)
+
+.PHONY: docs-clean
+docs-clean:  ## Clean docs build directory
+	rm -rf $(BUILDDIR)/
+
+.PHONY: docs-html
+docs-html: $(VENV_FOLDER)  ## Build html
+	@$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
+	@echo
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
+
+.PHONY: docs-livehtml
+docs-livehtml: $(VENV_FOLDER)  ## Rebuild Sphinx documentation on changes, with live-reload in the browser
+	@uv run sphinx-autobuild \
+		--ignore "*.swp" \
+		--port 8050 \
+		-b html $(DOCS_DIR) "$(BUILDDIR)/html" $(SPHINXOPTS)
+
+.PHONY: docs-linkcheck
+docs-linkcheck: $(VENV_FOLDER)  ## Run linkcheck
+	@$(SPHINXBUILD) -b linkcheck $(ALLSPHINXOPTS) $(BUILDDIR)/linkcheck
+	@echo
+	@echo "Link check complete; look for any errors in the above output or in $(BUILDDIR)/linkcheck/ ."
