@@ -33,3 +33,16 @@ With the shift to headless CMS environments, `cs_flickrgallery` fully decouples 
 - **Presentation Logic**: A JSON field (`flickr_images`) merely reads the annotations and exposes it to the REST API payload.
 
 Volto developers do not need to build API proxies in Node.js or worry about Flickr API keys. They can read the standardized `flickr_images` JSON payload from the Plone REST API out-of-the-box and implement their own presentation layer in React.
+
+## Behavior-Driven Development
+
+By providing this functionality as a Plone **Behavior** (`cs_flickrgallery.behaviors.flickr_gallery.IFlickrGalleryMarker`) rather than a hardcoded Content Type, the architecture is extremely flexible.
+
+Developers are not forced to use a specific `FlickrAlbum` content type. Instead, they can build their own custom content types (e.g., a `Portfolio`, `Event`, or `News Item`) and simply attach the `IFlickrGalleryMarker` behavior to it.
+
+Once attached, the content type instantly inherits:
+1. The backend configuration fields (`flickr_set`, API overrides).
+2. The administrative synchronization viewlet and REST API endpoint.
+3. The `flickr_images` serialized JSON data.
+
+This compositional approach allows for powerful, custom content models without duplicating code.
