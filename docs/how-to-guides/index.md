@@ -19,6 +19,7 @@ This part of the documentation contains how-to guides, including installation an
 
 syncing-photos
 customizing-presentation
+custom-content-type
 ```
 
 ```{seealso}
