@@ -1,0 +1,8 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="cs_flickrgallery"
+    >
+
+  <include package=".update_flickr_photos" />
+
+</configure>

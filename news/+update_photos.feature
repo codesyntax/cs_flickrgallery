@@ -1,0 +1,2 @@
+- Create `update-flickr-photos` REST API endpoint to trigger photo synchronization from Flickr @erral
+- Refactor the photo synchronization logic into a reusable `FlickrUpdater` class located in `cs_flickrgallery.flickr` @erral

@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="cs_flickrgallery"
+    >
+
+  <plone:service
+      method="POST"
+      factory=".update_flickr_photos.UpdateFlickrPhotos"
+      for="...behaviors.flickr_gallery.IFlickrGalleryMarker"
+      permission="cmf.ModifyPortalContent"
+      name="@update-flickr-photos"
+      />
+
+</configure>

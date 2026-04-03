@@ -83,7 +83,7 @@ class IFlickrGallery(model.Schema):
         readonly=False,
     )
 
-    directives.read_permission(flickr_api_secret="cmf.ModifyPortalContent")
+    directives.read_permission(flickr_api_secret="cmf.ModifyPortalContent")  # noqa: S106
     flickr_api_secret = schema.TextLine(
         title=_(
             "Flickr API secret",
