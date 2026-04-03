@@ -2,6 +2,7 @@ from cs_flickrgallery import _
 from cs_flickrgallery import logger
 from cs_flickrgallery.utils import get_images
 from plone import schema
+from plone.autoform import directives
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.schema import JSONField
 from plone.supermodel import model
@@ -26,6 +27,7 @@ class IFlickrGallery(model.Schema):
         fields=("flickr_set", "flickr_collection", "flickr_images"),
     )
 
+    directives.read_permission(flickr_set="cmf.ModifyPortalContent")
     flickr_set = schema.TextLine(
         title=_(
             "Flickr set id",
@@ -38,6 +40,7 @@ class IFlickrGallery(model.Schema):
         readonly=False,
     )
 
+    directives.read_permission(flickr_collection="cmf.ModifyPortalContent")
     flickr_collection = schema.TextLine(
         title=_(
             "Flickr collection id",
@@ -66,6 +69,7 @@ class IFlickrGallery(model.Schema):
         fields=("flickr_api_key", "flickr_api_secret", "flickr_user_id"),
     )
 
+    directives.read_permission(flickr_api_key="cmf.ModifyPortalContent")
     flickr_api_key = schema.TextLine(
         title=_(
             "Flickr API key",
@@ -79,6 +83,7 @@ class IFlickrGallery(model.Schema):
         readonly=False,
     )
 
+    directives.read_permission(flickr_api_secret="cmf.ModifyPortalContent")
     flickr_api_secret = schema.TextLine(
         title=_(
             "Flickr API secret",
@@ -92,6 +97,7 @@ class IFlickrGallery(model.Schema):
         readonly=False,
     )
 
+    directives.read_permission(flickr_user_id="cmf.ModifyPortalContent")
     flickr_user_id = schema.TextLine(
         title=_(
             "Flickr User ID",
