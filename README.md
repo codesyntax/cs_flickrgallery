@@ -123,6 +123,7 @@ Each of the images has the following structure:
 
 - [Issue tracker](https://github.com/codesyntax/cs_flickrgallery/issues)
 - [Source code](https://github.com/codesyntax/cs_flickrgallery/)
+- [Documentation](https://codesyntax.github.io/cs_flickrgallery/)
 
 ### Prerequisites ✅
 

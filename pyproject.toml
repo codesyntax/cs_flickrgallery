@@ -58,6 +58,7 @@ docs = [
 
 [project.urls]
 Homepage = "https://github.com/codesyntax/cs_flickrgallery"
+Documentation = "https://codesyntax.github.io/cs_flickrgallery/"
 PyPI = "https://pypi.org/project/cs_flickrgallery"
 Source = "https://github.com/codesyntax/cs_flickrgallery"
 Tracker = "https://github.com/codesyntax/cs_flickrgallery/issues"
