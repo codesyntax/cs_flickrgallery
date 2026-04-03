@@ -2,7 +2,6 @@
 myst:
   html_meta:
     "description": "cs_flickrgallery concepts"
-    "property=og:description": "cs_flickrgallery concepts"
     "property=og:title": "cs_flickrgallery concepts"
     "keywords": "Plone, cs_flickrgallery, concepts"
 ---
@@ -10,10 +9,16 @@ myst:
 # Concepts
 
 This part of the documentation contains conceptual guides, including design defense and explanation of concepts for deeper study.
-The Diátaxis framework also calls this class of documentation _explanation_.
 
 > Explanation is a discursive treatment of a subject, that permits reflection.
 > Explanation is understanding-oriented.
+
+```{toctree}
+:maxdepth: 2
+:hidden: false
+
+architecture
+```
 
 ```{seealso}
 https://diataxis.fr/explanation/
