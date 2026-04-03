@@ -9,6 +9,36 @@
 
 <!-- towncrier release notes start -->
 
+## 1.5 (2026-04-03)
+
+
+### New features:
+
+- - Create `update-flickr-photos` REST API endpoint to trigger photo synchronization from Flickr @erral
+  - Refactor the photo synchronization logic into a reusable `FlickrUpdater` class located in `cs_flickrgallery.flickr` @erral 
+- Replace the default documentation placeholders with a custom Flickr-inspired logo and favicon @erral 
+
+
+### Bug fixes:
+
+- Do not expose Flickr details in REST API @erral 
+
+
+### Internal:
+
+- Add GitHub Actions workflow to automatically publish Sphinx documentation to GitHub Pages @erral 
+- Add documentation URL to README and pyproject.toml @erral 
+- Add test coverage for FlickrClient, IFlickrGallery behavior, Classic UI views, and the @update-flickr-photos REST API endpoint @erral 
+- Update Development Status classifier to 5 - Production/Stable @erral 
+
+
+### Documentation:
+
+- Add Sphinx documentation structure using the cookieplone `documentation_starter` subtemplate @erral 
+- Add explanation of behavior-driven architecture design choices in documentation @erral 
+- Add how-to guide for creating custom content types using the Flickr Gallery behavior @erral 
+- Write complete documentation covering tutorials, how-to guides, reference, and concepts @erral 
+
 ## 1.3.1 (2026-03-30)
 
 
