@@ -33,9 +33,7 @@ class TestRESTAPI(unittest.TestCase):
 
         # Test endpoint as manager
         b = Browser(self.layer["app"])
-        b.addHeader(
-            "Authorization", "Basic %s:%s" % (SITE_OWNER_NAME, SITE_OWNER_PASSWORD)
-        )
+        b.addHeader("Authorization", f"Basic {SITE_OWNER_NAME}:{SITE_OWNER_PASSWORD}")
         b.addHeader("Accept", "application/json")
         b.post(self.doc.absolute_url() + "/@update-flickr-photos", data=b"")
 

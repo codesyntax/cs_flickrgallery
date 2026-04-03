@@ -28,9 +28,7 @@ class TestViews(unittest.TestCase):
         mock_update.return_value = 5
 
         b = Browser(self.layer["app"])
-        b.addHeader(
-            "Authorization", "Basic %s:%s" % (SITE_OWNER_NAME, SITE_OWNER_PASSWORD)
-        )
+        b.addHeader("Authorization", f"Basic {SITE_OWNER_NAME}:{SITE_OWNER_PASSWORD}")
 
         # Test view performs redirect and update is called
         b.post(self.doc.absolute_url() + "/@@update_photos_from_flickr", data=b"")
@@ -46,9 +44,7 @@ class TestViews(unittest.TestCase):
         transaction.commit()
 
         b = Browser(self.layer["app"])
-        b.addHeader(
-            "Authorization", "Basic %s:%s" % (SITE_OWNER_NAME, SITE_OWNER_PASSWORD)
-        )
+        b.addHeader("Authorization", f"Basic {SITE_OWNER_NAME}:{SITE_OWNER_PASSWORD}")
 
         b.open(self.doc.absolute_url() + "/@@flickr_gallery_view")
         self.assertEqual(b.headers["status"], "200 OK")

@@ -1,3 +1,5 @@
+# flake8: noqa: E501
+# ruff: noqa: E501, A001
 # Configuration file for the Sphinx documentation builder.
 # cs_flickrgallery build configuration file
 

@@ -12,7 +12,7 @@ class DummyContext:
         self.flickr_set = "123456"
         self.flickr_collection = None
         self.flickr_api_key = "dummy_key"
-        self.flickr_api_secret = "dummy_secret"
+        self.flickr_api_secret = "dummy_secret"  # noqa: S105
         self.absolute_url = lambda: "http://dummy"
 
 
